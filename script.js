@@ -15,7 +15,7 @@ botao.addEventListener("click", function (evento) {
   deletarTabela()
   criarTabela()
 
-  tabela.classList.remove("esconder")
+  tabela.parentElement.classList.remove("esconder")
   alert("Escadinha da Brena calculada!")
 })
 
