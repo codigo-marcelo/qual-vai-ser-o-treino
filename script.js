@@ -7,6 +7,8 @@ const tabela = document.querySelector("#escadinha")
 const tbody = tabela.querySelector("tbody")
 const total = tabela.querySelector(".total")
 
+inputRefeicao.focus()
+
 botao.addEventListener("click", function (evento) {
   if (!form.checkValidity()) return
 
