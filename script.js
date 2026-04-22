@@ -39,7 +39,7 @@ function criarTabela() {
     tr.append(tdValor)
   }
 
-  total.textContent = inputRefeicao.value
+  total.textContent = (inputRefeicao.value).replace(".", ",")
 }
 
 function escadinha() {
