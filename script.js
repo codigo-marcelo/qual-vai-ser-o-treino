@@ -43,8 +43,8 @@ function criarTabela() {
 }
 
 function escadinha() {
-  const membros = Number(document.querySelector("#membros").value)
-  const refeicao = Number(document.querySelector("#refeicao").value)
+  const membros = document.querySelector("#membros").value
+  const refeicao = document.querySelector("#refeicao").value
   const valores = []
 
   let porcentagem = 1
@@ -59,10 +59,9 @@ function escadinha() {
   let total = preco
 
   for (let i = 1; i < membros; i++) {
-    const valor = Number(preco.toFixed(2))
+    const valor = preco.toFixed(2)
     total += preco *= 1.1
-    valores.push(valor)
+    valores.push(valor.replace(".", ","))
   }
-
   return valores
 }
