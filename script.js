@@ -54,7 +54,7 @@ function escadinha() {
 
   for (let i = 1; i < membros; i++) {
     divisor += porcentagem
-    porcentagem *= 1.1
+    porcentagem *= 1.3
   }
 
   let preco = refeicao / divisor
@@ -62,7 +62,7 @@ function escadinha() {
 
   for (let i = 1; i < membros; i++) {
     const valor = preco.toFixed(2)
-    total += preco *= 1.1
+    total += preco *= 1.3
     valores.push(valor.replace(".", ","))
   }
   return valores
