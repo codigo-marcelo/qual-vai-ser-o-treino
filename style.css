@@ -8,8 +8,8 @@ body {
   background-color: black;
   color: aliceblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 3rem auto;
   height: 100vh;
+  padding-top: 3rem;
 }
 
 #escadinha {
@@ -109,7 +109,7 @@ section {
 }
 
 .esconder {
-  opacity: 0;
+  display: none;
 }
 
 .flex {
