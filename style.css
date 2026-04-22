@@ -99,6 +99,7 @@ section {
 .button {
   background-color: rgb(148, 7, 7);
   border-radius: 50%;
+  color: aliceblue;
   height: 4rem;
   width: 4rem;
   display: flex;
