@@ -1,7 +1,6 @@
 const menu = document.querySelector("#menu")
 const form = menu.querySelector("form")
 const botao = menu.querySelector("button")
-const inputMembros = document.querySelector("#membros")
 const inputRefeicao = document.querySelector("#refeicao")
 let valores = []
 const tabela = document.querySelector("#escadinha")
@@ -12,9 +11,9 @@ botao.addEventListener("click", function (evento) {
   if (!form.checkValidity()) return
 
   evento.preventDefault()
-  valores = escadinha(inputMembros, inputRefeicao)
+  valores = escadinha()
   deletarTabela()
-  criarTabela(inputMembros)
+  criarTabela()
 
   tabela.classList.remove("esconder")
   alert("Escadinha da Brena calculada!")
@@ -26,9 +25,7 @@ function deletarTabela() {
   if (trs) trs.forEach(tr => tr.remove())
 }
 
-function criarTabela(inputMembros) {
-  const membros = inputMembros.value
-
+function criarTabela() {
   for (let i = 0; i < valores.length; i++) {
     const tr = document.createElement("tr")
     tbody.append(tr)
@@ -45,15 +42,15 @@ function criarTabela(inputMembros) {
   total.textContent = inputRefeicao.value
 }
 
-function escadinha(inputMembros, inputRefeicao) {
-  const membros = Number(inputMembros.value)
-  const refeicao = Number(inputRefeicao.value)
+function escadinha() {
+  const membros = Number(document.querySelector("#membros").value)
+  const refeicao = Number(document.querySelector("#refeicao").value)
   const valores = []
 
   let porcentagem = 1
   let divisor = 0
 
-  for (let i = 0; i < membros; i++) {
+  for (let i = 1; i < membros; i++) {
     divisor += porcentagem
     porcentagem *= 1.1
   }
@@ -66,8 +63,6 @@ function escadinha(inputMembros, inputRefeicao) {
     total += preco *= 1.1
     valores.push(valor)
   }
-  console.log(valores)
-  console.log(total)
 
   return valores
 }
