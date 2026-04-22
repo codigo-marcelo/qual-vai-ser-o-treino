@@ -1,57 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+const menu = document.querySelector("#menu")
+const form = menu.querySelector("form")
+const botao = menu.querySelector("button")
+const inputRefeicao = document.querySelector("#refeicao")
+let valores = []
+const tabela = document.querySelector("#escadinha")
+const tbody = tabela.querySelector("tbody")
+const total = tabela.querySelector(".total")
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qual vai ser o Treino?</title>
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.35.0/tabler-icons.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
+botao.addEventListener("click", function (evento) {
+  if (!form.checkValidity()) return
 
-<body>
-  <section>
-    <img src="gymrats.png" alt="">
-    <h1>Qual vai ser o treino?</h1>
-    <section id="menu">
-      <form action="">
-        <div class="flex-column place-start gap-2 width-15">
-          <div class="flex align-items-center space-between">
-            <label for="membros" class="font-bold">Membros</label>
-            <input type="number" id="membros" value="7" min="2" max="100" class="input">
-          </div>
-          <div class="flex align-items-center space-between">
-            <label for="refeicao" class="font-bold">Refeição R$</label>
-            <input type="number" id="refeicao" value="1" min="1" max="1000" class="input">
-          </div>
-          <div class="flex place-center">
-            <button class="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ladder"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 3v18" /><path d="M16 3v18" /><path d="M8 14h8" /><path d="M8 10h8" /><path d="M8 6h8" /><path d="M8 18h8" /></svg>
-            </button>
-          </div>
-        </div>
-      </form>
-    </section>
+  evento.preventDefault()
+  valores = escadinha()
+  deletarTabela()
+  criarTabela()
 
-    <section id="escadinha" class="esconder">
-      <table>
-        <thead>
-          <tr>
-            <th>Posição</th>
-            <th>R$</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <td>Total</td>
-            <td class="total">0</td>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
-  </section>
-</body>
+  tabela.classList.remove("esconder")
+  alert("Escadinha da Brena calculada!")
+})
 
-</html>
+function deletarTabela() {
+  const trs = tbody.querySelectorAll("tr")
+
+  if (trs) trs.forEach(tr => tr.remove())
+}
+
+function criarTabela() {
+  for (let i = 0; i < valores.length; i++) {
+    const tr = document.createElement("tr")
+    tbody.append(tr)
+
+    const tdMembro = document.createElement("td")
+    tdMembro.textContent = i + 2 + "º"
+    tr.append(tdMembro)
+
+    const tdValor = document.createElement("td")
+    tdValor.textContent = valores[i]
+    tr.append(tdValor)
+  }
+
+  total.textContent = inputRefeicao.value
+}
+
+function escadinha() {
+  const membros = Number(document.querySelector("#membros").value)
+  const refeicao = Number(document.querySelector("#refeicao").value)
+  const valores = []
+
+  let porcentagem = 1
+  let divisor = 0
+
+  for (let i = 1; i < membros; i++) {
+    divisor += porcentagem
+    porcentagem *= 1.1
+  }
+
+  let preco = refeicao / divisor
+  let total = preco
+
+  for (let i = 1; i < membros; i++) {
+    const valor = Number(preco.toFixed(2))
+    total += preco *= 1.1
+    valores.push(valor)
+  }
+
+  return valores
+}
