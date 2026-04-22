@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: aliceblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 3rem auto;
+  height: 100vh;
+}
+
+#escadinha {
+  background-color: rgb(44, 48, 51);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  place-items: start;
+  place-content: start;
+  width: 22rem;
+}
+
+#menu {
+  background-color: rgb(44, 48, 51);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  place-items: center;
+  place-content: center;
+  width: 22rem;
+}
+
+img {
+  border-radius: 50%;
+  height: 10rem;
+}
+
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  width: 100%;
+  border-radius: 10px;
+  border-spacing: 0 .5rem;
+  overflow: hidden;
+}
+
+tbody td {
+  border-bottom: 1px solid rgb(70, 74, 77);
+}
+
+td {
+  padding: .5rem;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+td:first-child {
+  text-align: left;
+}
+
+tfoot {
+  font-weight: bold;
+}
+
+th {
+  padding: .5rem;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+th:first-child {
+  text-align: left;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  place-items: center;
+  place-content: center;
+  text-align: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(148, 7, 7);
+  border: none;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.esconder {
+  opacity: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.input {
+  background-color: rgb(70, 74, 77);
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  padding: .2rem;
+  text-align: center;
+  width: 5rem;
+}
+
+.place-center {
+  place-items: center;
+  place-content: center;
+}
+
+.place-start {
+  place-content: start;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.width-15 {
+  width: 15rem;
+}
