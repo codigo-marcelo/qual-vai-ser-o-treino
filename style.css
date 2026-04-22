@@ -9,7 +9,6 @@ body {
   color: aliceblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100vh;
-  padding-top: 3rem;
 }
 
 #escadinha {
@@ -87,6 +86,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 3rem 0;
   place-items: center;
   place-content: center;
   text-align: center;
